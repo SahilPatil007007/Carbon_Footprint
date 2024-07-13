@@ -1,0 +1,167 @@
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"> 
+  </script>
+  <style>
+    body{
+        background-image: url("../Assets/Back.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <p1 style="color:#2a7c6f;font:normal;">CARBON FOOTPRINTS</p1>
+  <hr style="color:#2a7c6f"/>
+  <div style="display: flex; justify-content: end;position: relative; bottom: 60px; gap: 50px;">
+    <a href="/recommend" id ="bottone1" style="text-decoration: none;">Reduce CO2</a>
+    <a href="/logout" id="bottone2" style="position:relative; float: right; ">Logout</a> 
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="relative">
+    <h1 style="color:#00e6b8; font:bold;">Calculate your<br>Carbon Footprint</h1>
+
+    <h2 style="color: #038067"><br>The purpose of this calculator is to give you an<br>estimate of your carbon footprint
+    </h2>
+
+    <h3 style="color:#015847; font-family: sans-serif;"><br><br>In order to tackle climate change each of us have a
+      responsibility to<br>first of all understand our carbon footprint and then to take action to<br>reduce it through
+      our own actions and choices as consumers, as well as<br>by putting pressure on governments, businesses and
+      other<br>organisations to take measures to limit carbon emissions.</h3>
+  </div>
+
+  <div class="tabs">
+    
+    <input type="radio" class="tabs__radio" name="Energy" id="tab1" checked>
+    <label for="tab1" class="tabs__label">Energy</label>
+
+      <div class="tabs__content">
+        <form action="/E_submit" method="POST">
+          <img src="../Assets/EnergyTab.png" style="width: 448px; height: 356px; object-fit: cover;">
+          <label for="Input1" style="position:absolute; top: 120px ;right: 399px;">Monthly electric bill</label>
+          <label for="Input2" style="position:absolute; top: 120px; right: 160px;">Annual natural gas bill</label>
+          <input type="number" id="Input1" placeholder="Enter in (KWh)" style="position:absolute; top: 150px;right: 350px;">
+          <input type="number" id="Input2" placeholder="Enter in (Kg)" style="position:absolute; top: 150px ;right: 130px;">
+          <label for="Input3" style="position:absolute; top: 230px;right: 348px;">Annual Petrol Consumption</label>
+          <input type="number" id="Input3" placeholder="Enter in (litres)"
+            style="position:absolute; top: 258px ;right: 350px">
+          <label for="Input4" style="position:absolute; top: 230px;  right: 125px;">Annual Diesel Consumption</label>
+          <input name="x" type="number" id="Input4" placeholder="Enter in (litres)"
+            style="position:absolute; top: 258px; right: 130px;">
+
+          <p id="output1" style="position: absolute; top:350px; right:422px;"><%= outputE %></p>
+          <input type="hidden" id="concealE" name = "tEnergy">
+          <button id="bottone1" style="position: absolute; top:300px; right :400px;"
+            onclick="Energy_Calulation()"><strong>Calculate</strong></button>
+        </form>
+      </div>
+
+
+
+    <input type="radio" class="tabs__radio" name="Energy" id="tab2">
+    <label for="tab2" class="tabs__label">Travel</label>
+    <div class="tabs__content">
+      <form action="/T_submit" method="POST">
+        <img src="../Assets/TravelTabImage.webp"
+          style="width: 573px; height: 356px;position: relative;left:250px;object-fit: cover;">
+        <label for="input5" style="position: absolute;left:255px;top:308px; color: white">By Car</label>
+        <input type="number" id="input5" placeholder="Enter in (Km)"
+          style="position: absolute; left:255px; top:330px; width: 125px;">
+        <label for="input6" style="position: absolute;left:255px;top:358px; color: white">By Bus</label>
+        <input type="number" id="input6" placeholder="Enter in (Km)"
+          style="position: absolute; left:255px; top:380px; width: 125px;">
+        <label for="input7" style="position: absolute;left:543px;top:233px; color: white">By Flight</label>
+        <input type="number" id="input7" placeholder="Enter in (Km)"
+          style="position: absolute; left:543px; top:255px; width: 130px;">
+        <label for="input8" style="position: absolute;left:688px;top:313px; color: white">By Train</label>
+        <input type="number" id="input8" placeholder="Enter in (Km)"
+          style="position: absolute; left:688px; top:335px; width: 125px;">
+        <p id="output2" style="position: absolute; top:120px; right:55px;"><%= outputT %></p>
+        <input type="hidden" id="concealT" name = "tTravel">
+        <button id="bottone1" style="position: absolute; top:85px; right:55px;"
+          onclick="Travel_Calculation()"><strong>Calculate</strong></button>
+      </form> 
+    </div>
+
+      <input type="radio" class="tabs__radio" name="Energy" id="tab3">
+      <label for="tab3" class="tabs__label">Waste</label>
+      <div class="tabs__content">
+        <form action="/W_submit" method="POST">
+          <img src="../Assets/WasteTabImage.webp" style="width: 379px; height: 356px; object-fit: cover;">
+          <label style="position: absolute;left: 450px; top:110px;">Do you recycle newspaper?</label>
+          <label style="position: absolute;left:720px; top:110px;">Do you recycle aluminum and tin</label>
+          <div class="radiobutton1">
+            <label><input type="radio" id="inputr1" name="Recycle">Yes</label>
+            <label><input type="radio" id="inputr2" name="Recycle">No</label>
+          </div>
+          <div class="radiobutton2">
+            <label><input type="radio" id="inputr3" name="Recycle2">Yes</label>
+            <label><input type="radio" id="inputr4" name="Recycle2">No</label>
+          </div>
+          <p id="output3" style="position: absolute; top:235px;left: 453px;"><%= outputW %></p>
+          <input type="hidden" id="concealW" name = "tWaste">
+          <button id="bottone1" style="position: absolute; top:200px ;left: 450px;"
+            onclick="Waste_Calculation()"><strong>Calculate</strong></button>
+        </form>
+    </div>
+
+    <input type="radio" class="tabs__radio" name="Energy" id="tab4">
+    <label for="tab4" class="tabs__label">Diet</label>
+    <div class="tabs__content">
+      <form action="/D_submit" method="POST">
+        <img src="../Assets/DietTabImage.webp" style="width: 649px; height: 356px; object-fit: cover;">
+        <select class="Agegrouplist" id="age">
+          <option value disabled selected>Age Group</option>
+          <option value=1>Children (1-3 years old)</option>
+          <option value=2>Adolescents (14-18 years old)</option>
+          <option value=3>Adults</option>
+        </select>
+        <select class="Dietlist" id="diet">
+          <option value disabled selected>Diet</option>
+          <option value=1>Vegetarian diet</option>
+          <option value=2>Vegan diet</option>
+          <option value=3>Meat-based diet</option>
+        </select>
+        <p id="output4" style="position: absolute; top:235px;left: 720px;"><%= outputD %></p>
+        <input type="hidden" id="concealD" name = "tDiet">
+        <button id="bottone1" style="position: absolute; top:200px ;left: 720px;"
+          onclick="Diet_Calculator()"><strong>Calculate</strong></button>
+      </form>
+    </div>
+  </div>
+  <div class="output">
+    
+    <form action="/C_submit" method="POST">
+      <img src="../Assets/results.svg" style="width:500px;height: 500px;">
+      <p style="position:absolute;top: 260px;left:190px;font-weight: bold;color: white ;text-align: center;"> TONNES
+        OF<br>Carbon emission</p>
+
+      <h2 style="position:relative;font-weight: bold;bottom: 280px; color: white ;text-align: center;" id="totals"><%= outputTC %>
+      </h2>
+      <input type="hidden" id="concealC" name = "tCarbon">
+
+      <button id="bottone1" style="position: absolute; top:0px ;left: 0px;"><strong>Total</strong></button>
+
+    </form>
+
+    <button id="bottone1" style="position: absolute; top:0px; left: 700px;"
+    onclick="compare()"><strong>Compare</strong></button>
+    
+    <canvas id="myChart" height="260px" style="position:absolute; top:50px; left:650px; "></canvas>
+
+  </div>
+
+
+  
+  <script src="/JS Files/project.js"></script>
+</body>
+</html>

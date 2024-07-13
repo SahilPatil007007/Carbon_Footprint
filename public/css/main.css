@@ -1,0 +1,117 @@
+h1{
+    font-size: 55px;
+  }
+  p1{
+      font-size: 40px;;
+  }
+  div.relative {
+position: absolute;
+left: 300px;
+  }
+  div.tabs{
+    position: relative;
+    bottom: 0px;
+    top: 500px;
+    margin: 50px;
+    left: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 60px;
+    max-width: 1050px;
+    font-family: sans-serif;
+    background-color: #b4e6dd;
+  }
+  .tabs__label{
+
+    padding: 10px 16px;
+    height: 40px;
+    background-color: #b4e6dd;
+    cursor: pointer;
+  }
+  .tabs__radio{
+    display: none;
+  }
+  .tabs__content{
+    order: 1;
+    width: 100%;
+    background-color:#eef8f5;
+    border-bottom: 3px solid #eef8f5;
+    line-height: 1.5;
+    font-size: 0.9em;
+    display: none;
+  }
+  .tabs__radio:checked+.tabs__label{
+    font-weight: bold;
+    color:black;
+    border-bottom: 2px solid black ;
+  }
+  .tabs__radio:checked+.tabs__label+.tabs__content{
+    display: initial;
+  }
+  .radiobutton1{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 450px;
+    top:130px;
+  }
+  .radiobutton2{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 720px;
+    top:130px;
+  }
+  .Agegrouplist{
+    position: absolute;
+    left: 720px;
+    top:130px;
+  }
+  .Dietlist{
+    position: absolute;
+    left: 720px;
+    top:160px;
+    width: 200px;
+  }
+  .output{
+    position: absolute;
+    top:1200px;
+    left: 150px;
+
+  }
+  #bottone1 {
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    border-radius: 9px;
+    background: #d5f365;
+    border: none;
+    font-family: inherit;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.4s;
+   }
+   
+   #bottone1:hover {
+    box-shadow: 7px 5px 56px -14px #C3D900;
+   }
+   
+   #bottone1:active {
+    transform: scale(0.97);
+    box-shadow: 7px 5px 56px -10px #C3D900;
+   }
+
+   #bottone2 {
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    border-radius: 9px;
+    background: #f6993c;
+    border: none;
+    font-family: inherit;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.4s;
+   }

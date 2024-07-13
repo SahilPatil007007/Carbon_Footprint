@@ -1,0 +1,44 @@
+.box {
+    position: relative;
+    height: 300px;
+    width: 300px;
+    padding: 50px;
+    margin: 15px;
+    top: 190px;
+    left: 510px;
+    backdrop-filter: blur(10px);
+    box-shadow: 1px 1px 10px #000000;
+  }
+.transbox{
+    position: relative;
+    left: 100px;
+    bottom: 70px;
+    font-family: 'Poppins';
+    opacity: 1;
+}
+.form{
+    position: relative;
+    display: flex;
+}
+#output{
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-bottom: 16px;
+    padding-top: 16px;
+    border-radius: 9px;
+    background: #000000;
+    border: none;
+    font-family: inherit;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.4s;
+    opacity: 0.9;
+}
+#output:hover {
+    box-shadow: 7px 5px 56px -14px white;
+   }
+   
+#output:active {
+    transform: scale(0.97);
+    box-shadow: 7px 5px 56px -10px white;
+   }
